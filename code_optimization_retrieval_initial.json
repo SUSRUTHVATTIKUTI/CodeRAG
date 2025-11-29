@@ -1,0 +1,15 @@
+[
+   {
+    "text": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main(){\n    vector<int> v(1000, 1);\n    int sum = 0;\n    for(int i = 0; i < v.size(); i++){\n        sum = sum + v[i];\n    }\n    cout << sum << endl;\n    return 0;\n}"
+  },
+  {
+    "text": "#include <iostream>\n#include <string>\nusing namespace std;\nint main(){\n    string result = \"\";\n    for(int i = 0; i < 10000; i++){\n        result += to_string(i);\n    }\n    cout << result.size() << endl;\n    return 0;\n}"
+  },
+  {
+    "text": "#include <iostream>\nusing namespace std;\nint main(){\n    int sum = 0;\n    for(int i = 0; i < 1000; i++){\n        sum += (i * i) + (i * i);\n    }\n    cout << sum;\n    return 0;\n}"
+  },
+  {
+    "text": "#include <iostream>\nusing namespace std;\nint fib(int n){\n    if(n <= 1) return n;\n    return fib(n-1) + fib(n-2);\n}\nint main(){\n    cout << fib(35);\n    return 0;\n}"
+  }
+]
+

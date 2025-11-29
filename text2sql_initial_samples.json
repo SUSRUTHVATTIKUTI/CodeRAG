@@ -1,0 +1,32 @@
+[
+    {
+        "text": "SELECT name FROM employee;"
+    },
+    {
+        "text": "SELECT course_id, COUNT(student_id) FROM enrollment GROUP BY course_id;"
+    },
+    {
+        "text": "SELECT department_id, AVG(salary) FROM employee GROUP BY department_id;"
+    },
+    {
+        "text": "SELECT title FROM books WHERE publication_year > 2015;"
+    },
+    {
+        "text": "SELECT customer_name FROM orders GROUP BY customer_name HAVING COUNT(order_id) > 5;"
+    },
+    {
+        "text": "SELECT DISTINCT city FROM offices;"
+    },
+    {
+        "text": "SELECT name FROM doctors WHERE specialty = 'Cardiology';"
+    },
+    {
+        "text": "SELECT course_name FROM courses WHERE professor = 'John Smith';"
+    },
+    {
+        "text": "SELECT product_name FROM sales ORDER BY total_sales DESC LIMIT 5;"
+    },
+    {
+        "text": "SELECT department_name FROM departments WHERE employee_count > 10;"
+    }
+]

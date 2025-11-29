@@ -1,0 +1,22 @@
+[
+    {
+        "prompt": "Given a piece of Python code, retrieve C++ code that is semantically equivalent to the input code.",
+        "query": "import math NEW_LINE def sumOfTwoCubes ( n ) : NEW_LINE INDENT lo = 1 NEW_LINE hi = round ( math . pow ( n , 1 / 3 ) ) NEW_LINE while ( lo <= hi ) : NEW_LINE INDENT curr = ( lo * lo * lo + hi * hi * hi ) NEW_LINE if ( curr == n ) : NEW_LINE INDENT return True NEW_LINE DEDENT if ( curr < n ) : NEW_LINE INDENT lo += 1 NEW_LINE DEDENT else : NEW_LINE INDENT hi -= 1 NEW_LINE DEDENT DEDENT return False NEW_LINE DEDENT N = 28 NEW_LINE if ( sumOfTwoCubes ( N ) ) : NEW_LINE INDENT print ( \" True \" ) NEW_LINE DEDENT else : NEW_LINE INDENT print ( \" False \" ) NEW_LINE DEDENT",
+        "pos": [
+            "```cpp\n#include <cmath>\n#include <iostream>\n\nbool sumOfTwoCubes(int n) {\n    int lo = 1;\n    int hi = static_cast<int>(round(pow(n, 1.0 / 3.0)));\n    while (lo <= hi) {\n        int curr = (lo * lo * lo + hi * hi * hi);\n        if (curr == n) {\n            return true;\n        }\n        if (curr < n) {\n            lo += 1;\n        } else {\n            hi -= 1;\n        }\n    }\n    return false;\n}\n\nint main() {\n    int N = 28;\n    if (sumOfTwoCubes(N)) {\n        std::cout << \" True \" << std::endl;\n    } else {\n        std::cout << \" False \" << std::endl;\n    }\n    return 0;\n}\n```"
+        ],
+        "neg": [
+            "```cpp\n#include <cmath>\n#include <iostream>\n\nbool isPerfectCube(int n) {\n    int cubeRoot = static_cast<int>(round(pow(n, 1.0 / 3.0)));\n    return (cubeRoot * cubeRoot * cubeRoot == n);\n}\n\nint main() {\n    int N = 28;\n    if (isPerfectCube(N)) {\n        std::cout << \" True \" << std::endl;\n    } else {\n        std::cout << \" False \" << std::endl;\n    }\n    return 0;\n}\n```"
+        ]
+    },
+     {
+        "prompt": "Given a piece of Python code, retrieve C++ code that is semantically equivalent to the input code.",
+        "query": "def maxPresum ( a , b ) : NEW_LINE INDENT X = max ( a [ 0 ] , 0 ) NEW_LINE for i in range ( 1 , len ( a ) ) : NEW_LINE INDENT a [ i ] += a [ i - 1 ] NEW_LINE X = max ( X , a [ i ] ) NEW_LINE DEDENT Y = max ( b [ 0 ] , 0 ) NEW_LINE for i in range ( 1 , len ( b ) ) : NEW_LINE INDENT b [ i ] += b [ i - 1 ] NEW_LINE Y = max ( Y , b [ i ] ) NEW_LINE DEDENT return X + Y NEW_LINE DEDENT A = [ 2 , - 1 , 4 , - 5 ] NEW_LINE B = [ 4 , - 3 , 12 , 4 , - 3 ] NEW_LINE print ( maxPresum ( A , B ) ) NEW_LINE",
+        "pos": [
+            "```cpp\n#include <iostream>\n#include <vector>\n#include <algorithm>\n\nint maxPresum(const std::vector<int>& a, const std::vector<int>& b) {\n    int X = std::max(a[0], 0);\n    std::vector<int> a_prefix = a;\n    for (size_t i = 1; i < a_prefix.size(); ++i) {\n        a_prefix[i] += a_prefix[i - 1];\n        X = std::max(X, a_prefix[i]);\n    }\n    int Y = std::max(b[0], 0);\n    std::vector<int> b_prefix = b;\n    for (size_t i = 1; i < b_prefix.size(); ++i) {\n        b_prefix[i] += b_prefix[i - 1];\n        Y = std::max(Y, b_prefix[i]);\n    }\n    return X + Y;\n}\n\nint main() {\n    std::vector<int> A = {2, -1, 4, -5};\n    std::vector<int> B = {4, -3, 12, 4, -3};\n    std::cout << maxPresum(A, B) << std::endl;\n    return 0;\n}\n```"
+        ],
+        "neg": [
+            "```cpp\n#include <iostream>\n#include <vector>\n#include <algorithm>\n\nint maxSubarraySum(const std::vector<int>& a) {\n    int max_so_far = std::max(a[0], 0);\n    int current_max = max_so_far;\n    for (size_t i = 1; i < a.size(); ++i) {\n        current_max = std::max(a[i], current_max + a[i]);\n        max_so_far = std::max(max_so_far, current_max);\n    }\n    return max_so_far;\n}\n\nint main() {\n    std::vector<int> A = {2, -1, 4, -5};\n    std::vector<int> B = {4, -3, 12, 4, -3};\n    std::cout << maxSubarraySum(A) + maxSubarraySum(B) << std::endl;\n    return 0;\n}\n```"
+        ]
+    }
+]
